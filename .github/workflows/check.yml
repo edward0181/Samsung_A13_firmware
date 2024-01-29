@@ -153,17 +153,12 @@ jobs:
           git tag "${{ env.latest_shortversion }}_${{ matrix.region }}"
 
       - name: Push changes to repo
-        if: env.need_update == 1
         uses: ad-m/github-push-action@master
         with:
           tags: true
-          github_token: ${{ secrets.TOKEN }}
-
+          
       - name: Upload release assets
-        if: env.need_update == 1
         uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           body_path: versions.txt
           tag_name: "${{ env.latest_shortversion }}_${{ matrix.region }}"
