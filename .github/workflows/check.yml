@@ -15,11 +15,11 @@ jobs:
       matrix:
         include:
           # EUX OMC 
-          - model: "SM-A137F"
+          - model: "SM-A236BF"
             region: "EUX"
           # EUX OMC
-          - model: "SM-A137F"
-            region: "EUY"
+          - model: "SM-A236E"
+            region: "INS"
 
     steps:
       - name: Checkout repo
@@ -64,10 +64,10 @@ jobs:
       - name: Fetch firmware
         if: env.need_update == 1
         run: |
-          if [[ "${{ matrix.model }}" == "SM-A137F" ]]; then
-              imei="354049881234560"
+          if [[ "${{ matrix.model }}" == "SM-A236B" ]]; then
+              imei="352566275239873"
           else
-              imei="352599501234566"
+              imei="354612945239873"
           fi
           samfirm -m ${{ matrix.model }} -r ${{ matrix.region }} -i $imei
 
