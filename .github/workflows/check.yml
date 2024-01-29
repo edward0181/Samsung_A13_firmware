@@ -15,9 +15,9 @@ jobs:
       matrix:
         include:
           # EUX OMC 
-          - model: "SM-A236BF"
+          - model: "SM-A236B"
             region: "EUX"
-          # EUX OMC
+          # INS OMC
           - model: "SM-A236E"
             region: "INS"
 
