@@ -135,7 +135,10 @@ jobs:
           simg2img super.img super_raw.img
           rm super.img
           mv super_raw.img super.img
-          python3 tools/bin/lpunpack.py -p system vendor odm product super.img .
+          python3 tools/bin/lpunpack.py -p system super.img .
+          python3 tools/bin/lpunpack.py -p vendor super.img .
+          python3 tools/bin/lpunpack.py -p odm super.img .
+          python3 tools/bin/lpunpack.py -p product super.img .
           rm super.img
           [[ -e vendor.img.ext4 ]] && mv vendor.img.ext4 vendor.img
           [[ -e vendor.img ]] && zip ${{ env.latest_shortversion }}_vendor.zip vendor.img
